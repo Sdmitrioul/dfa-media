@@ -28,17 +28,41 @@ export const Icon: FC<IIconProps> = forwardRef<SVGSVGElement, IIconProps>((
         onMouseUp,
         fill,
         stroke,
+        size,
         name,
         id,
         className
     }, ref) => {
     const icon: IconItem = icons[name]
+    let width = size || icon.size
+    let height = size || icon.size
+
+    // Not square icon
+    if (icon.viewBox.w !== icon.viewBox.h) {
+        width = icon.viewBox.w
+        height = icon.viewBox.h
+
+        if (size) {
+            width =
+                icon.viewBox.w > icon.viewBox.h
+                    ? size
+                    : size * (icon.viewBox.w / icon.viewBox.h)
+
+            height =
+                icon.viewBox.h > icon.viewBox.w
+                    ? size
+                    : size * (icon.viewBox.h / icon.viewBox.w)
+        }
+    }
     return(
         <svg
             ref={ref}
             id={id}
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
+            width={width}
+            height={height}
+            viewBox={`0 0 ${icon.viewBox.w} ${icon.viewBox.h}`}
             className={clsx(
                 {
                     'stroke-current':

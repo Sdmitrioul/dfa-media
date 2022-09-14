@@ -11,9 +11,14 @@ module.exports = {
       blue: {
         dark: '#141927',
         current: '#212C42',
+        bright: '#6781F7',
       }
     },
-    extend: {},
+    extend: {
+      boxShadow: {
+        main: '0px 4px 4px rgba(0, 0, 0, 0.25)',
+      }
+    },
   },
   plugins: [],
 }
