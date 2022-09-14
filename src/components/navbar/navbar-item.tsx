@@ -15,8 +15,8 @@ export const NavbarItem: FC<PropsWithChildren<INavbarItemProps>> = ({ name, chil
         <div
             onClick={onClick}
             className={clsx(
-                "cursor-pointer px-6 py-4 text-grey flex border-l-[4px]",
-                currentChosen ? "border-l-blue-bright text-white" : "border-l-blue-dark"
+                "cursor-pointer px-6 py-4 flex border-l-[4px] hover:opacity-70",
+                currentChosen ? "border-l-blue-bright text-white" : "border-l-blue-dark text-grey"
             )}
         >
             {children}
