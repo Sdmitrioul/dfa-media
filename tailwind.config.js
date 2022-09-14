@@ -17,6 +17,7 @@ module.exports = {
     },
     fontSize: {
       xs: ['8px', '10px'],
+      lg: ["20px", "24px"]
     },
     extend: {
       boxShadow: {
